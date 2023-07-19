@@ -2,11 +2,6 @@
  * Copyright (c) 2023 Uptycs, Inc. All rights reserved
  */
 
-# Get MSGraph App
-resource "azuread_service_principal" "msgraph" {
-  application_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
-  use_existing   = true
-}
 
 # Create a service principal for the Uptycs App
 resource "azuread_service_principal" "service_principal" {
@@ -15,7 +10,7 @@ resource "azuread_service_principal" "service_principal" {
 }
 
 resource "azurerm_role_definition" "Define_Uptycs_Registry_Reader_Role" {
-  name        = "UptycsRegistryReader"
+  name        = var.resource_name
   scope       = data.azurerm_subscription.current.id
   description = "Read permissions for accessing ACR"
 
@@ -44,4 +39,10 @@ resource "azurerm_role_assignment" "attach_acrpull_role" {
   principal_id         = azuread_service_principal.service_principal.id
   scope                = data.azurerm_subscription.current.id
   role_definition_name = "AcrPull"
+}
+
+resource "azurerm_role_assignment" "attach_custom_role" {
+  principal_id       = azuread_service_principal.service_principal.id
+  scope              = data.azurerm_subscription.current.id
+  role_definition_id = azurerm_role_definition.Define_Uptycs_Registry_Reader_Role.role_definition_resource_id
 }
