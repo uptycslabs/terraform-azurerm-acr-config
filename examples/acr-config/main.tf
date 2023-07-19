@@ -7,3 +7,7 @@ module "acr-config" {
   # customize the name of the generated azurerm_role_definition.
   resource_name = "AnExampleName"
 }
+
+output "tenant_id" {
+    value = module.acr-config.tenant_id
+}
