@@ -44,7 +44,7 @@ module "acr-config" {
 } 
 
 output "tenant_id" {
-    value = module.acr-config.tenant_id
+    value = module.acr-config.tenantId
 }
 ```
 
@@ -52,15 +52,16 @@ output "tenant_id" {
 
 **Inputs**
 
-| Name                   | Description                              | Type     | Default           |
-| ---------------------- | ---------------------------------------- | -------- | ----------------- |
-| uptycs_app_client_id   | The Client ID of Uptycs multi-tenant app | `string` | Required          |
+| Name                 | Description                                              | Type     | Default     |
+| ---------------------| -------------------------------------------------------- | -------- | ----------- |
+| uptycs_app_client_id | The Client ID of Uptycs multi-tenant app                 | `string` |             |
+| resource_name        | A unique prefix for the resources created by this module | `string` | "uptycs_custom_role" |     
 
 ### Outputs
 
 | Name     | Description |
 | -------- | ----------- |
-| tenantId | Tenant ID   |
+| tenant_id | Tenant ID   |
 
 ```
 $ terraform init --upgrade
