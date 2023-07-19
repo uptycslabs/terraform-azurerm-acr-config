@@ -44,7 +44,7 @@ module "acr-config" {
 } 
 
 output "tenant_id" {
-    value = module.acr-config.tenantId
+    value = module.acr-config.tenant_id
 }
 ```
 
