@@ -11,5 +11,4 @@ variable "uptycs_app_client_id" {
 variable "resource_name" {
   description = "resource name"
   type        = string
-  default     = "uptycs_custom_role"
 }
