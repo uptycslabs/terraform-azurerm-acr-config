@@ -17,8 +17,8 @@ And will be granted the following roles:
 ## Prerequisites
 
 Ensure you have the following privileges before you execute the Terraform Script:
-* Administrative roles:
-  * Global administrator
+* Owner
+* Contributor
 
 ## Authentication
 

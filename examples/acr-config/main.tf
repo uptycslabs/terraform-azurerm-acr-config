@@ -5,7 +5,9 @@ module "acr-config" {
 
   # Note that the following resource name is optional. You may specify this to
   # customize the name of the generated azurerm_role_definition.
-  resource_name = "AnExampleName"
+  
+  resource_name     = "uptycs_custom_role"
+
 }
 
 output "tenant_id" {
