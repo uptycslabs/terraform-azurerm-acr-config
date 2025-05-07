@@ -39,7 +39,10 @@ Create a `main.tf` file in a new folder. Copy and paste the following configurat
 ```hcl
 module "acr-config" {
     source            = "uptycslabs/acr-config/azurerm"
-
+    # Note that the following resource name is optional. You may specify this to
+    # customize the name of the generated azurerm_role_definition.
+  
+    resource_name     = "uptycs_custom_role"
     uptycs_app_client_id = "Copy/Paste From the Uptycs UI"
 } 
 
