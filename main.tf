@@ -5,8 +5,8 @@
 
 # Create a service principal for the Uptycs App
 resource "azuread_service_principal" "service_principal" {
-  application_id = var.uptycs_app_client_id
-  use_existing   = true
+  client_id    = var.uptycs_app_client_id
+  use_existing = true
 }
 
 resource "azurerm_role_definition" "Define_Uptycs_Registry_Reader_Role" {
