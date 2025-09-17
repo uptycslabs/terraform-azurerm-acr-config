@@ -29,20 +29,20 @@ resource "azurerm_role_definition" "Define_Uptycs_Registry_Reader_Role" {
 
 # Give the service principal a Reader role in the Subscription
 resource "azurerm_role_assignment" "attach_reader_role" {
-  principal_id         = azuread_service_principal.service_principal.id
+  principal_id         = azuread_service_principal.service_principal.object_id
   scope                = data.azurerm_subscription.current.id
   role_definition_name = "Reader"
 }
 
 # Give the service principal an AcrPull role in the Subscription
 resource "azurerm_role_assignment" "attach_acrpull_role" {
-  principal_id         = azuread_service_principal.service_principal.id
+  principal_id         = azuread_service_principal.service_principal.object_id
   scope                = data.azurerm_subscription.current.id
   role_definition_name = "AcrPull"
 }
 
 resource "azurerm_role_assignment" "attach_custom_role" {
-  principal_id       = azuread_service_principal.service_principal.id
+  principal_id       = azuread_service_principal.service_principal.object_id
   scope              = data.azurerm_subscription.current.id
   role_definition_id = azurerm_role_definition.Define_Uptycs_Registry_Reader_Role.role_definition_resource_id
 }
