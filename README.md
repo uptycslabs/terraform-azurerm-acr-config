@@ -68,7 +68,12 @@ output "tenant_id" {
 | -------- | ----------- |
 | tenant_id | Tenant ID   |
 
+> [!NOTE]
+> If you're using version >= `0.1.3` of this module, you'll have to set the `ARM_SUBSCRIPTION_ID` environment variable.
+
 ```
+# Only needed when using version >= 0.1.3 of this module, replace null uuid with actual subscription id
+$ export ARM_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
 $ terraform init --upgrade
 $ terraform plan  # Please verify before applying
 $ terraform apply
